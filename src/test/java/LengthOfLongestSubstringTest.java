@@ -7,6 +7,10 @@ public class LengthOfLongestSubstringTest {
 
     LengthOfLongestSubstring lengthOfLongestSubstring;
 
+    public LengthOfLongestSubstringTest() {
+        lengthOfLongestSubstring = new LengthOfLongestSubstring();
+    }
+
     @BeforeAll
     public static void setup() {
         System.out.println("Before All LengthOfLongestSubstring Test");
@@ -15,7 +19,6 @@ public class LengthOfLongestSubstringTest {
     @BeforeEach
     public void beforeEach() {
         System.out.println("Before Each LengthOfLongestSubstring Test");
-        lengthOfLongestSubstring = new LengthOfLongestSubstring();
     }
 
     @Test
