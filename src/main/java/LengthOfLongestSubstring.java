@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given a string s, find the length of the longest
  * substring
@@ -26,33 +29,34 @@
 public class LengthOfLongestSubstring {
 
     public int lengthOfLongestSubstring(String s) {
-        int stInd = 0;
-        int endInd = 0;
-        String  searchStr = "";
+        int eIndex = 0;
         int maxLength = 0;
-        while(endInd < s.length()) {
-            String nextChar = String.valueOf(s.charAt(endInd));
-            if (searchStr.contains(nextChar)) {
-                // Find lastIndex of the nextChar in the string 0 to end
-                int lastIndexOf = s.substring(0, endInd).lastIndexOf(nextChar);
-                stInd = lastIndexOf + 1;
-                endInd = endInd + 1;
-                if (endInd > s.length()) {
-                    break;
-                }
-                searchStr = s.substring(stInd, endInd);
+        Map<Character, Character> map = new HashMap<>();
+        String str = "";
+        while(eIndex < s.length()) {
+            String nextStr = String.valueOf(s.charAt(eIndex));
+            if (str.contains(nextStr)) {
+                maxLength = str.length() > maxLength ? str.length() : maxLength;
+                // Update str
+                str = str.substring(str.indexOf(nextStr) + 1, str.length()) + nextStr;
             } else {
-                searchStr = searchStr + nextChar;
-                endInd++;
+                str = str + nextStr;
             }
-            maxLength = Integer.max(searchStr.length(), maxLength);
+            eIndex++;
         }
-        return maxLength;
+        return str.length() > maxLength ? str.length() : maxLength;
     }
 
     public static void main(String[] args) {
         LengthOfLongestSubstring lengthOfLongestSubstring = new LengthOfLongestSubstring();
+        System.out.println(lengthOfLongestSubstring.lengthOfLongestSubstring("dvdf"));
         System.out.println(lengthOfLongestSubstring.lengthOfLongestSubstring("pwwkew"));
+        System.out.println(lengthOfLongestSubstring.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(lengthOfLongestSubstring.lengthOfLongestSubstring("aaaaaa"));
+        System.out.println(lengthOfLongestSubstring.lengthOfLongestSubstring(""));
+        System.out.println(lengthOfLongestSubstring.lengthOfLongestSubstring(" "));
+        System.out.println(lengthOfLongestSubstring.lengthOfLongestSubstring("   "));
+
         // e - 6
         // a - 7
     }
