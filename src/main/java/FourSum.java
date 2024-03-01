@@ -33,8 +33,6 @@ public class FourSum {
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
 
-        IntStream.rangeClosed(0, )
-
         for (int outter=0; outter<nums.length-3; outter++) {
             for (int inner=outter+1; inner<nums.length-2; inner++) {
                 int num3Index = inner + 1;

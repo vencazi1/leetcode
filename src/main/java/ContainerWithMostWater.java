@@ -24,6 +24,25 @@
  * n == height.length
  * 2 <= n <= 105
  * 0 <= height[i] <= 104
+ *
+ * Logic --
+ *
+ * maxValue = Integer.MIN_VALUE
+ * leftPointer at 0
+ * rightPointer at array.length-1
+ * int multiple = array.length - 1;
+ * while(leftPointer < rightPointer) {
+ *     1. Calculate value = min(leftPointer, rightPointer) * multiple
+ *     2. if (array[leftPointer] < array[rightPointer)
+ *          leftPointer++
+ *       else if (array[leftPointer] > array[rightPointer)
+ *          rightPointer--
+ *       else // they are equal
+ *          leftPointer++
+ *          rightPointer++
+ *     3. multiple--
+ *     4 maxValue = max(maxValue, value)
+ * }
  */
 
 public class ContainerWithMostWater {

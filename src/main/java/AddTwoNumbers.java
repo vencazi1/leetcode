@@ -75,6 +75,5 @@ public class AddTwoNumbers {
         ListNode l3 = addTwoNumbers.addTwoNumbers(l1, l2);*/
         ListNode l3 = addTwoNumbers.addTwoNumbers(new ListNode(9, new ListNode(9)),
                 new ListNode(9, new ListNode(9)));
-        l3.display();
     }
 }

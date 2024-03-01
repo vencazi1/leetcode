@@ -31,7 +31,6 @@ public class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         int eIndex = 0;
         int maxLength = 0;
-        Map<Character, Character> map = new HashMap<>();
         String str = "";
         while(eIndex < s.length()) {
             String nextStr = String.valueOf(s.charAt(eIndex));
